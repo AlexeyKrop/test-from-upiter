@@ -1,0 +1,64 @@
+.nav {
+    padding-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navList {
+    margin: 0;
+    padding: 0;
+    max-width: 515px;
+    width: 100%;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.navLink {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover {
+    color: #797ac5;
+}
+
+.contactWrapper {
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.contact {
+    display: inline-block;
+    padding: 5px 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.headerTitle {
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 80px;
+    text-align: center;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+}
+
+.description {
+    padding-bottom: 58px;
+    max-width: 570px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 400;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.64);
+
+}
