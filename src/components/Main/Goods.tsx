@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import {Cards} from "./Cards/Cards";
 import s from './Goods.module.css'
 
-export type GoodsType = {
+export type GoodType = {
   id: number, name: string, filter: string
 }
-const defaultGoods: Array<GoodsType> = [ // need to fix any
+export type GoodsType = {
+  goods: Array<GoodType>,
+}
+const defaultGoods: Array<GoodType> = [ // need to fix any
   {id: 1, name: 'SOFA', filter: 'Design'},
   {id: 2, name: 'KeyBoard', filter: 'Branding'},
   {id: 3, name: 'Work Media', filter: 'Illustration'},
@@ -15,19 +18,18 @@ const defaultGoods: Array<GoodsType> = [ // need to fix any
   {id: 7, name: 'Architect', filter: 'Illustration'},
   {id: 8, name: 'CalC', filter: 'Motion'},
   {id: 9, name: 'Sport', filter: 'Design'},
-  // {id: 10, name: 'html & css', filter: 'Branding'},
-  // {id: 11, name: 'html & css', filter: 'Illustration'},
-  // {id: 12, name: 'html & css', filter: 'Motion'},
-  // {id: 13, name: 'html & css', filter: 'Design'},
-  // {id: 14, name: 'html & css', filter: 'Branding'},
-  // {id: 15, name: 'html & css', filter: 'Illustration'},
-  // {id: 16, name: 'html & css', filter: 'Motion'},
-  // {id: 17, name: 'html & css', filter: 'Design'},
-  // {id: 18, name: 'html & css', filter: 'Motion'},
+  {id: 10, name: 'html & css', filter: 'Branding'},
+  {id: 11, name: 'html & css', filter: 'Illustration'},
+  {id: 12, name: 'html & css', filter: 'Motion'},
+  {id: 13, name: 'html & css', filter: 'Design'},
+  {id: 14, name: 'html & css', filter: 'Branding'},
+  {id: 15, name: 'html & css', filter: 'Illustration'},
+  {id: 16, name: 'html & css', filter: 'Motion'},
+  {id: 17, name: 'html & css', filter: 'Design'},
+  {id: 18, name: 'html & css', filter: 'Motion'},
 ]
 // pure helper functions
-export const filterGoods = (goods: Array<GoodsType>, filter: string): Array<GoodsType> => {
-// need to fix any
+export const filterGoods = (goods: Array<GoodType>, filter: string): Array<GoodType> => {
   if (filter === 'all') {
     return goods
   }
@@ -46,8 +48,10 @@ export const filterGoods = (goods: Array<GoodsType>, filter: string): Array<Good
   return goods
 }
 export const Goods = () => {
-  const [goods, setGoods] = useState<Array<GoodsType>>(defaultGoods)
-  const [filter, setFilter] = useState<string>('all')
+  const [goods, setGoods] = useState<Array<GoodType>>(defaultGoods)
+  const [filter, setFilter] = useState<string>('Show All')
+  const [numberOfItems, setNumberOfItems] = useState<number>(9)
+
   const onClickHandler = (value: string) => {
     setFilter(value)
   }

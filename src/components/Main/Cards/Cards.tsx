@@ -1,13 +1,13 @@
 import React from 'react';
-import {GoodsType} from "../Goods";
+import {GoodType} from "../Goods";
 import {Card} from "./Card/Card";
 import s from './Cards.module.css'
 type CardsPropsType = {
-  data: Array<GoodsType>
+  data: Array<GoodType>
   onClickFilterGoods: (value: string) => void
 }
 export const Cards = (props: CardsPropsType) => {
-  const mappedGoods= props.data.map((m: GoodsType) => (
+  const mappedGoods= props.data.map((m: GoodType) => (
     <Card
       onClickFilterGoods={props.onClickFilterGoods}
       key={m.id}

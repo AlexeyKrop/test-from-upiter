@@ -3,7 +3,6 @@ import s from './Card.module.css'
 
 export const Card = (props: any) => {
   const[toggle, setToggle] = useState<boolean>(false)
-  console.log(toggle)
   const onClickHandler = (value: string) => {
     props.onClickFilterGoods(value)
   }
