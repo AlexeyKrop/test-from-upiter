@@ -3,12 +3,11 @@
     max-width: 368px;
     width: 100%;
     min-height: 416px;
-    background: #5C2000;
-    mix-blend-mode: normal;
-    opacity: 0.32;
     border-radius: 6px;
     margin-bottom: 32px;
     cursor: pointer;
+    /*background-image: url("https://cdn.fishki.net/upload/post/2018/09/04/2694772/64b5e064f27accff2b3d09505a448079.jpg");*/
+    background-size: cover
 }
 .cardActive{
     border: 7px solid #4FE24A;
@@ -32,4 +31,12 @@
     font-size: 40px;
     line-height: 48px;
     color: #FFFFFF;
+}
+.img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    overflow: hidden;
+    border-radius: 6px;
 }
