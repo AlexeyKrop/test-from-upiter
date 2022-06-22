@@ -16,10 +16,16 @@ code {
     monospace;
 }
 .container{
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 18px;
 }
+@media (max-width: 1280px) {
+  .container{
+    max-width: 1200px;
+  }
+}
+
 .header{
   background: #28293E;
 }
