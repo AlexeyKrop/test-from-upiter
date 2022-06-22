@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Cards} from "./Cards/Cards";
 import s from './Goods.module.css'
+import {Preloader} from "../../common/Preloader";
 
 export type GoodType = {
   id: number, name: string, filter: string, src: string
@@ -48,6 +49,7 @@ export const Goods = () => {
   const [goods, setGoods] = useState<Array<GoodType>>(defaultGoods)
   const [filter, setFilter] = useState<string>('Show All')
   let [numberOfItems, setNumberOfItems] = useState<number>(9)
+  const[loading, setLoading] = useState<boolean>(false)
 
   const onClickHandler = (value: string) => {
     setFilter(value)
@@ -55,7 +57,12 @@ export const Goods = () => {
   let filteredGoods = filterGoods(goods, filter)
   filteredGoods = filteredGoods.slice(0, numberOfItems)
   const onClickAddItem = () => {
-    setNumberOfItems(numberOfItems += 9)
+    setLoading(true)
+    setTimeout(() => {
+      setNumberOfItems(numberOfItems += 9)
+      setLoading(false)
+    }, 2000)
+
   }
  const deleteGood = (cardId: number) => {
    setGoods(goods.filter((g) => g.id !== cardId))
@@ -72,7 +79,16 @@ export const Goods = () => {
         </div>
         <Cards deleteGood={(cardId) => {deleteGood(cardId)}} onClickFilterGoods={onClickHandler} data={filteredGoods}/>
         <div className={s.btnWrapper}>
-          <button onClick={onClickAddItem} className={s.btnLoad}>Load More</button>
+
+          {loading
+            ? (
+             <Preloader/>
+            ) : (
+              <div>
+                <button onClick={onClickAddItem} className={s.btnLoad}>Load More</button>
+              </div>
+            )
+          }
         </div>
 
       </div>
