@@ -11,7 +11,6 @@ type OptionsPropsType = {
 }
 
 export const Options = (props: OptionsPropsType) => {
-  console.log(props)
   const onClickMenuListHandler = (id: number, filter: string) => {
     props.showFilterValue(id)
     props.setCollapsed(!props.collapsed)

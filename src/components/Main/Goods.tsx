@@ -182,13 +182,15 @@ export const Goods = () => {
     }, 1000)
 
   }
+
   const deleteGood = (cardId: number) => {
     setGoods(goods.filter((g) => g.id !== cardId))
   }
+
   const onChangeCallback = (value: string) => {
     setFilter(value)
   }
-  console.log(filter)
+
   return (
     <div className='container'>
       <div className={s.wrapper}>

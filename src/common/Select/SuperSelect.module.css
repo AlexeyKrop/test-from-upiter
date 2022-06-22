@@ -4,9 +4,10 @@
     max-width: 320px;
     width: 100%;
     padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: none;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
     background: #FFFFFF;
     border: 1px solid #F3D1BF;
     border-radius: 6px;
@@ -43,6 +44,13 @@
 }
 .menuList:hover{
     background-color: #FDF0E9;
+}
+@media (max-width: 1040px) {
+    .menuHeader{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 

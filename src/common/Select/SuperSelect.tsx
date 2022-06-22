@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
 import {Options} from "./Options";
 import s from './SuperSelect.module.css'
-export const SuperSelect = (props: any) => {
+import {FilterValueType} from "../../components/Main/Goods";
+type SuperSelectPropsType = {
+  filterValue: Array<FilterValueType>
+  onChangeCallback: (value: string) => void
+}
+export const SuperSelect = (props: SuperSelectPropsType) => {
   const [collapsed, setCollapsed] = useState<boolean>(true)
   const [titleValue, setTitleValue] = useState('Show all')
   const showFilterValue = (id: number) => {
-    props.filterValue.map((u: any) => u.id === id ? setTitleValue(u.filter) : '')
+    props.filterValue.map(u => u.id === id ? setTitleValue(u.filter) : '')
   }
   return (
     <>
