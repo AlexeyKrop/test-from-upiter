@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/test-from-upiter/static/css/main.a8ed2347.css",
+    "main.css": "/test-from-upiter/static/css/main.ac611c6d.css",
     "main.js": "/test-from-upiter/static/js/main.05dd1856.js",
     "static/js/787.8c21f15a.chunk.js": "/test-from-upiter/static/js/787.8c21f15a.chunk.js",
     "static/media/logo.svg": "/test-from-upiter/static/media/logo.a554c61724429a6981df3de45bd7081b.svg",
     "index.html": "/test-from-upiter/index.html",
-    "main.a8ed2347.css.map": "/test-from-upiter/static/css/main.a8ed2347.css.map",
+    "main.ac611c6d.css.map": "/test-from-upiter/static/css/main.ac611c6d.css.map",
     "main.05dd1856.js.map": "/test-from-upiter/static/js/main.05dd1856.js.map",
     "787.8c21f15a.chunk.js.map": "/test-from-upiter/static/js/787.8c21f15a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8ed2347.css",
+    "static/css/main.ac611c6d.css",
     "static/js/main.05dd1856.js"
   ]
 }
