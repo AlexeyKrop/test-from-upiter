@@ -10,7 +10,6 @@
     margin-bottom: 32px;
 }
 .cardActive{
-
     border: 7px solid #4FE24A;
 }
 .filterGroup{
@@ -24,6 +23,7 @@
     background: #FFFFFF;
     color: #391400;
     border-radius: 19px;
+    cursor: pointer;
 }
 .name{
     margin: 0;

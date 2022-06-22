@@ -62,7 +62,7 @@ export const Goods = () => {
           <button className={filter === 'Illustration' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Illustration')}}>Illustration</button>
           <button className={filter === 'Motion' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Motion')}}>Motion</button>
         </div>
-        <Cards data={filteredGoods}/>
+        <Cards onClickFilterGoods={onClickHandler} data={filteredGoods}/>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Card.module.css'
 export const Card = (props: any) => {
   const onClickHandler = (value: string) => {
-    console.log(value)
+    props.onClickFilterGoods(value)
   }
   return (
     <div className={s.wrapper}>
