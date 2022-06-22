@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Cards} from "./Cards/Cards";
 import s from './Goods.module.css'
 import {Preloader} from "../../common/Preloader";
+import SuperSelect from "../../common/Select/SuperSelect";
 
 export type GoodType = {
   id: number, name: string, filter: string, src: string
@@ -35,7 +36,7 @@ const defaultGoods: Array<GoodType> = [
   {id: 26, name: 'Floor', src:"https://proprikol.ru/wp-content/uploads/2020/07/kartinki-zimnij-vecher-58.jpg",filter: 'Illustration'},
   {id: 27, name: 'House', src:"https://proprikol.ru/wp-content/uploads/2020/07/kartinki-zimnij-vecher-58.jpg",filter: 'Motion'},
 ]
-
+const filterValue: Array<string> = ['Show All', 'Design', 'Branding', 'Illustration', 'Motion']
 export const filterGoods = (goods: Array<GoodType>, filter: string): Array<GoodType> => {
   if (filter === 'all') {
     return goods
@@ -76,6 +77,10 @@ export const Goods = () => {
  const deleteGood = (cardId: number) => {
    setGoods(goods.filter((g) => g.id !== cardId))
   }
+  const onChangeCallback = (value: string) => {
+    setFilter(value)
+  }
+  console.log(filter)
   return (
     <div className='container'>
       <div className={s.wrapper}>
@@ -86,9 +91,9 @@ export const Goods = () => {
           <button className={filter === 'Illustration' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Illustration')}}>Illustration</button>
           <button className={filter === 'Motion' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Motion')}}>Motion</button>
         </div>
+        <SuperSelect options={filterValue} onChangeOption={onChangeCallback}/>
         <Cards deleteGood={(cardId) => {deleteGood(cardId)}} onClickFilterGoods={onClickHandler} data={filteredGoods}/>
         <div className={s.btnWrapper}>
-
           {loading
             ? (
              <Preloader/>

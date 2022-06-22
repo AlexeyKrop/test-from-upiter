@@ -40,3 +40,12 @@
     overflow: hidden;
     border-radius: 6px;
 }
+@media (max-width: 1040px) {
+    .filterGroup{
+        left: 28px;
+        bottom: 58px;
+    }
+    .wrapper:last-child{
+        margin-bottom: 0;
+    }
+}

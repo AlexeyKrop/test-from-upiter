@@ -5,3 +5,8 @@
     align-items: center;
     flex-wrap: wrap;
 }
+@media (max-width: 1040px) {
+    .wrapper{
+        flex-direction: column;
+    }
+}
