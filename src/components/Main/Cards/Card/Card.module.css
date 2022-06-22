@@ -8,6 +8,7 @@
     opacity: 0.32;
     border-radius: 6px;
     margin-bottom: 32px;
+    cursor: pointer;
 }
 .cardActive{
     border: 7px solid #4FE24A;
