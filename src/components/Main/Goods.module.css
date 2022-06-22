@@ -1,0 +1,23 @@
+.wrapper{
+    padding-top: 80px;
+}
+.buttonGroup{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 568px;
+    margin: 0 auto 60px auto;
+    width: 100%;
+}
+.btn{
+    background: transparent;
+    border:none;
+    cursor: pointer;
+    color: rgba(57, 20, 0, 0.64);
+}
+.btnActive{
+    background: transparent;
+    border:none;
+    cursor: pointer;
+    color: #16CD53;
+}
