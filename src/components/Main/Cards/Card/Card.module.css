@@ -6,11 +6,10 @@
     border-radius: 6px;
     margin-bottom: 32px;
     cursor: pointer;
-    /*background-image: url("https://cdn.fishki.net/upload/post/2018/09/04/2694772/64b5e064f27accff2b3d09505a448079.jpg");*/
-    background-size: cover
 }
 .cardActive{
-    border: 7px solid #4FE24A;
+    box-shadow: 0 0 0 7px rgb(79, 226, 74);
+
 }
 .filterGroup{
     position: absolute;
