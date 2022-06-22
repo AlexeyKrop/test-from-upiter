@@ -1,7 +1,16 @@
 import React, {useState} from 'react';
 import s from './Card.module.css'
-
-export const Card = (props: any) => {
+export type CardPropsType = {
+  good: {id: number, name: string, filter: string},
+  deleteGood: (id: number) => void,
+  filter: string,
+  id: number,
+  name: string,
+  onClickFilterGoods: (value: string) => void,
+  tabIndex: number,
+}
+export const Card = (props: CardPropsType) => {
+  console.log(props)
   const[toggle, setToggle] = useState<boolean>(false)
   const onClickHandler = (value: string) => {
     props.onClickFilterGoods(value)

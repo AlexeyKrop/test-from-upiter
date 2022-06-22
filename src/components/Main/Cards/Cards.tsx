@@ -14,7 +14,7 @@ export const Cards = (props: CardsPropsType) => {
       key={m.id}
       id={m.id}
       tabIndex={m.id}
-      affair={m}
+      good={m}
       name={m.name}
       filter={m.filter}
       deleteGood={props.deleteGood}
