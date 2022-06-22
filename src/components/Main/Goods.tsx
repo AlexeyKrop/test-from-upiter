@@ -8,7 +8,7 @@ export type GoodType = {
 export type GoodsType = {
   goods: Array<GoodType>,
 }
-const defaultGoods: Array<GoodType> = [ // need to fix any
+const defaultGoods: Array<GoodType> = [
   {id: 1, name: 'SOFA', filter: 'Design'},
   {id: 2, name: 'KeyBoard', filter: 'Branding'},
   {id: 3, name: 'Work Media', filter: 'Illustration'},
@@ -28,7 +28,7 @@ const defaultGoods: Array<GoodType> = [ // need to fix any
   {id: 17, name: 'html & css', filter: 'Design'},
   {id: 18, name: 'html & css', filter: 'Motion'},
 ]
-// pure helper functions
+
 export const filterGoods = (goods: Array<GoodType>, filter: string): Array<GoodType> => {
   if (filter === 'all') {
     return goods
@@ -50,12 +50,16 @@ export const filterGoods = (goods: Array<GoodType>, filter: string): Array<GoodT
 export const Goods = () => {
   const [goods, setGoods] = useState<Array<GoodType>>(defaultGoods)
   const [filter, setFilter] = useState<string>('Show All')
-  const [numberOfItems, setNumberOfItems] = useState<number>(9)
+  let [numberOfItems, setNumberOfItems] = useState<number>(9)
 
   const onClickHandler = (value: string) => {
     setFilter(value)
   }
-  const filteredGoods = filterGoods(goods, filter)
+  let filteredGoods = filterGoods(goods, filter)
+  filteredGoods = filteredGoods.slice(0, numberOfItems)
+  const onClickAddItem = () => {
+    setNumberOfItems(numberOfItems += 9)
+  }
   return (
     <div className='container'>
       <div className={s.wrapper}>
@@ -67,6 +71,7 @@ export const Goods = () => {
           <button className={filter === 'Motion' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Motion')}}>Motion</button>
         </div>
         <Cards onClickFilterGoods={onClickHandler} data={filteredGoods}/>
+        <button onClick={onClickAddItem} className={s.btnLoad}>Load More</button>
       </div>
     </div>
   );

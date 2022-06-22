@@ -21,3 +21,11 @@
     cursor: pointer;
     color: #16CD53;
 }
+.btnLoad{
+    margin-top: 100px;
+    font-weight: 900;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #391400;
+}
