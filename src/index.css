@@ -1,30 +1,38 @@
-*{
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
+
 body {
-  margin: 0;
-  font-family: 'Epilogue', sans-serif;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 200%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 200%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-  .container{
-    max-width: 1200px;
+.container {
+    max-width: 1600px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 18px;
 }
-
-.header{
-  background: #28293E;
+@media (max-width: 1280px) {
+    .container{
+        max-width: 1200px;
+        width: 100%;
+    }
 }
-.main{
-  background: #FDF0E9
+.header {
+    background: #28293E;
+}
+
+.main {
+    background: #FDF0E9
 }
