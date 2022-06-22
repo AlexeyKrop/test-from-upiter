@@ -5,9 +5,6 @@ import s from './Goods.module.css'
 export type GoodType = {
   id: number, name: string, filter: string
 }
-export type GoodsType = {
-  goods: Array<GoodType>,
-}
 const defaultGoods: Array<GoodType> = [
   {id: 1, name: 'SOFA', filter: 'Design'},
   {id: 2, name: 'KeyBoard', filter: 'Branding'},
@@ -60,6 +57,9 @@ export const Goods = () => {
   const onClickAddItem = () => {
     setNumberOfItems(numberOfItems += 9)
   }
+ const deleteGood = (cardId: number) => {
+   setGoods(goods.filter((g) => g.id !== cardId))
+  }
   return (
     <div className='container'>
       <div className={s.wrapper}>
@@ -70,8 +70,11 @@ export const Goods = () => {
           <button className={filter === 'Illustration' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Illustration')}}>Illustration</button>
           <button className={filter === 'Motion' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {onClickHandler('Motion')}}>Motion</button>
         </div>
-        <Cards onClickFilterGoods={onClickHandler} data={filteredGoods}/>
-        <button onClick={onClickAddItem} className={s.btnLoad}>Load More</button>
+        <Cards deleteGood={(cardId) => {deleteGood(cardId)}} onClickFilterGoods={onClickHandler} data={filteredGoods}/>
+        <div className={s.btnWrapper}>
+          <button onClick={onClickAddItem} className={s.btnLoad}>Load More</button>
+        </div>
+
       </div>
     </div>
   );

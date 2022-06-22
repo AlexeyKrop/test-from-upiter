@@ -5,15 +5,19 @@ import s from './Cards.module.css'
 type CardsPropsType = {
   data: Array<GoodType>
   onClickFilterGoods: (value: string) => void
+  deleteGood: (id: number) => void
 }
 export const Cards = (props: CardsPropsType) => {
   const mappedGoods= props.data.map((m: GoodType) => (
     <Card
       onClickFilterGoods={props.onClickFilterGoods}
       key={m.id}
+      id={m.id}
+      tabIndex={m.id}
       affair={m}
       name={m.name}
       filter={m.filter}
+      deleteGood={props.deleteGood}
     />
   ))
   return (
