@@ -3,6 +3,7 @@ import {Cards} from "./Cards/Cards";
 import s from './Goods.module.css'
 import {Preloader} from "../../common/Preloader";
 import {SuperSelect} from "../../common/Select/SuperSelect";
+import {log} from "util";
 
 export type GoodType = {
   id: number, name: string, filter: string, src: string
@@ -144,22 +145,29 @@ const defaultGoods: Array<GoodType> = [
     filter: 'Motion'
   },
 ]
-const filterValue: Array<FilterValueType> = [{id: 1, filter: 'Show All'}, {id: 2, filter: 'Design'}, {id: 3,filter: 'Branding'}, {id: 4, filter: 'Illustration'}, {id: 5, filter: 'Motion'}]
+const filterValue: Array<FilterValueType> =
+  [
+    {id: 1, filter: 'Show All'},
+    {id: 2, filter: 'Design'},
+    {id: 3,filter: 'Branding'},
+    {id: 4, filter: 'Illustration'},
+    {id: 5, filter: 'Motion'}
+  ]
 export const filterGoods = (goods: Array<GoodType>, filter: string): Array<GoodType> => {
   if (filter === 'all') {
     return goods
   }
   if (filter === 'Design') {
-    return goods.filter((el) => el.filter === 'Design')
+    return goods.filter((el) => el.filter === filter)
   }
   if (filter === 'Branding') {
-    return goods.filter((el) => el.filter === 'Branding')
+    return goods.filter((el) => el.filter === filter)
   }
   if (filter === 'Illustration') {
-    return goods.filter((el) => el.filter === 'Illustration')
+    return goods.filter((el) => el.filter === filter)
   }
   if (filter === 'Motion') {
-    return goods.filter((el) => el.filter === 'Motion')
+    return goods.filter((el) => el.filter === filter)
   }
   return goods
 }
@@ -190,31 +198,19 @@ export const Goods = () => {
   const onChangeCallback = (value: string) => {
     setFilter(value)
   }
+  let btn = filterValue.map(f => {
+    return(
+      <button key={f.id} className={filter === f.filter ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
+        onClickHandler(f.filter)
+      }}>{f.filter}</button>
+    )
 
+  })
   return (
     <div className='container'>
       <div className={s.wrapper}>
         <div className={s.buttonGroup}>
-          <button className={filter === 'Show All' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
-            onClickHandler('Show All')
-          }}>Show All
-          </button>
-          <button className={filter === 'Design' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
-            onClickHandler('Design')
-          }}>Design
-          </button>
-          <button className={filter === 'Branding' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
-            onClickHandler('Branding')
-          }}>Branding
-          </button>
-          <button className={filter === 'Illustration' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
-            onClickHandler('Illustration')
-          }}>Illustration
-          </button>
-          <button className={filter === 'Motion' ? `${s.btnActive}` : `${s.btn}`} onClick={() => {
-            onClickHandler('Motion')
-          }}>Motion
-          </button>
+          {btn}
         </div>
         <div className={s.selectWrapper}>
           <SuperSelect onChangeCallback={onChangeCallback} filterValue={filterValue}/>
